@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1200">
+    <title>DzXNewEra 👑 | Premium Web Services</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0066FF;
+            --primary-light: #3399FF;
+            --primary-dark: #0047B3;
+            --accent: #00D4FF;
+            --dark: #0A0F1A;
+            --darker: #070B14;
+            --card: #121828;
+            --text: #F0F4FF;
+            --text-light: #B8C7E8;
+            --border: rgba(0, 102, 255, 0.2);
+            --shadow: rgba(0, 102, 255, 0.15);
+            --gradient: linear-gradient(135deg, #0066FF 0%, #00D4FF 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--darker);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            line-height: 1.6;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            min-height: 100vh;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(0, 102, 255, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(0, 212, 255, 0.05) 0%, transparent 20%);
+        }
+
+        /* Compact Header */
+        .compact-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 40px;
+            padding: 25px 30px;
+            background: rgba(18, 24, 40, 0.8);
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            box-shadow: 0 8px 32px var(--shadow);
+            backdrop-filter: blur(10px);
+        }
+
+        .profile-compact {
+            position: relative;
+            width: 70px;
+            height: 70px;
+            flex-shrink: 0;
+        }
+
+        .profile-compact img {
+            width: 100%;
+            height: 100%;
+            border-radius: 18px;
+            object-fit: cover;
+            border: 2px solid transparent;
+            background: linear-gradient(45deg, var(--primary), var(--accent)) border-box;
+            box-shadow: 0 0 20px rgba(0, 102, 255, 0.3);
+        }
+
+        .crown-compact {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            font-size: 24px;
+            filter: drop-shadow(0 2px 8px rgba(255, 215, 0, 0.3));
+        }
+
+        .brand-compact {
+            flex: 1;
+        }
+
+        .brand-name {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 5px;
+            letter-spacing: -0.5px;
+        }
+
+        .brand-tagline {
+            color: var(--text-light);
+            font-size: 14px;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        /* Hero Section dengan teks menarik */
+        .hero-section {
+            text-align: center;
+            padding: 40px 20px;
+            margin-bottom: 40px;
+            background: linear-gradient(135deg, rgba(0, 102, 255, 0.1), rgba(0, 212, 255, 0.05));
+            border-radius: 25px;
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 20%, rgba(0, 102, 255, 0.15) 0%, transparent 50%);
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto 25px;
+        }
+
+        .highlight-text {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(0, 102, 255, 0.2), rgba(0, 212, 255, 0.1));
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            color: var(--accent);
+            margin: 15px 0;
+            border: 1px solid var(--border);
+        }
+
+        /* VERTICAL LAYOUT untuk layanan */
+        .vertical-services {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .service-card {
+            background: var(--card);
+            border-radius: 20px;
+            padding: 35px;
+            border: 1px solid var(--border);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0, 102, 255, 0.25);
+            border-color: rgba(0, 102, 255, 0.4);
+        }
+
+        .service-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .service-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .service-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+        }
+
+        .price-tag {
+            background: var(--gradient);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 700;
+            box-shadow: 0 6px 20px rgba(0, 102, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .price-tag::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+            animation: shineEffect 3s infinite;
+        }
+
+        @keyframes shineEffect {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        /* Feature list dengan gaya baru */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            background: rgba(0, 102, 255, 0.1);
+            border-color: rgba(0, 102, 255, 0.3);
+            transform: translateX(5px);
+        }
+
+        .feature-check {
+            width: 30px;
+            height: 30px;
+            background: rgba(0, 212, 255, 0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* Compact Buttons */
+        .btn-compact {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: var(--gradient);
+            color: white;
+            text-decoration: none;
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(0, 102, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-compact:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(0, 102, 255, 0.4);
+        }
+
+        .btn-compact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s;
+        }
+
+        .btn-compact:hover::before {
+            left: 100%;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            box-shadow: none;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(0, 102, 255, 0.1);
+        }
+
+        /* Marketing Sections */
+        .marketing-section {
+            background: var(--card);
+            border-radius: 20px;
+            padding: 35px;
+            margin: 40px 0;
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .marketing-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--gradient);
+        }
+
+        .marketing-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Ultra Compact Contact */
+        .contact-minimal {
+            background: var(--card);
+            border-radius: 20px;
+            padding: 30px;
+            margin-top: 30px;
+            border: 1px solid var(--border);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 20px 15px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: var(--text);
+            border: 1px solid transparent;
+        }
+
+        .contact-item:hover {
+            background: rgba(0, 102, 255, 0.1);
+            border-color: var(--border);
+            transform: translateY(-5px);
+        }
+
+        .contact-icon {
+            font-size: 22px;
+            margin-bottom: 12px;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            background: rgba(0, 102, 255, 0.1);
+        }
+
+        /* Footer */
+        .footer-compact {
+            text-align: center;
+            margin-top: 50px;
+            padding: 30px;
+            color: var(--text-light);
+            font-size: 13px;
+            border-top: 1px solid var(--border);
+            background: rgba(18, 24, 40, 0.5);
+            border-radius: 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 1000px) {
+            body {
+                padding: 15px;
+                max-width: 800px;
+            }
+            
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .hero-title {
+                font-size: 28px;
+            }
+            
+            .service-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+        }
+
+        /* Utility */
+        .text-center { text-align: center; }
+        .mb-20 { margin-bottom: 20px; }
+        .mb-30 { margin-bottom: 30px; }
+        .mt-20 { margin-top: 20px; }
+        .mt-30 { margin-top: 30px; }
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 28px;
+            color: var(--text);
+            margin-bottom: 25px;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Statistik */
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .stat-item {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+            padding: 25px 15px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Compact Header -->
+    <header class="compact-header">
+        <div class="profile-compact">
+            <img src="https://files.catbox.moe/2v6hcc.jpg" alt="DzXNewEra">
+            <div class="crown-compact"></div>
+        </div>
+        <div class="brand-compact">
+            <h1 class="brand-name">DzXNewEra 👑</h1>
+            <p class="brand-tagline">The Best and Most Trusted Website Builder</p>
+        </div>
+    </header>
+
+    <!-- Hero Section dengan Teks Menarik -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h2 class="hero-title">TRANSFORMASI DIGITAL BISNIS ANDA</h2>
+            <p class="hero-subtitle">
+                Website bukan sekadar halaman online, tapi <strong style="color: var(--accent);">wajah digital bisnis Anda</strong> yang menentukan kesan pertama pelanggan.
+            </p>
+            
+            <div class="highlight-text">
+                ⚡ <strong>Loading Cepat</strong> • 📱 <strong>Mobile Friendly</strong> • 🔒 <strong>Keamanan Premium</strong>
+            </div>
+            
+            <p style="font-size: 16px; color: var(--text-light); max-width: 800px; margin: 0 auto;">
+                Di era di mana <strong style="color: var(--primary-light);">94% kesan pertama</strong> berkaitan dengan desain website, 
+                jangan biarkan bisnis Anda tertinggal hanya karena tampilan yang ketinggalan zaman!
+            </p>
+        </div>
+    </section>
+
+    <!-- Statistik Menarik -->
+
+    <!-- Layanan dalam Layout VERTICAL -->
+    <h3 class="section-title">🎯 PILIHAN LAYANAN PREMIUM</h3>
+    <p style="text-align: center; color: var(--text-light); margin-bottom: 40px; max-width: 800px; margin: 0 auto 40px;">
+        Setiap bisnis berbeda, itulah mengapa kami menawarkan <strong style="color: var(--accent);">dua solusi custom</strong> 
+        yang bisa disesuaikan dengan kebutuhan dan budget Anda.
+    </p>
+
+    <div class="vertical-services">
+        <!-- WEB 1 -->
+        <div class="service-card">
+            <div class="service-header">
+                <div style="display: flex; align-items: center; gap: 20px;">
+                    <div class="service-icon">⚡</div>
+                    <div>
+                        <h3 class="service-title">WEB 1 • TEMPLATE PREMIUM</h3>
+                        <p style="color: var(--text-light); font-size: 14px;">
+                            Solusi cepat dengan template eksklusif yang sudah dioptimalkan
+                        </p>
+                    </div>
+                </div>
+                <div class="price-tag">TAMPILAN READY</div>
+            </div>
+            
+            <p style="font-size: 16px; color: var(--text-light); margin-bottom: 20px; line-height: 1.7;">
+                <strong>✨ Perfect untuk:</strong> Bisnis yang ingin online cepat dengan budget terbatas, 
+                tapi tetap menginginkan tampilan profesional dan fungsionalitas lengkap.
+            </p>
+            
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <div class="feature-check">✓</div>
+                    <div>
+                        <strong>Template Premium Collection</strong>
+                        <p style="font-size: 13px; color: var(--text-light); margin-top: 5px;">
+                            Akses ke koleksi template eksklusif dengan desain modern
+                        </p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-check">✓</div>
+                    <div>
+                        <strong>Custom Request FREE</strong>
+                        <p style="font-size: 13px; color: var(--text-light); margin-top: 5px;">
+                            Ubah warna, layout, konten sesuai brand tanpa biaya tambahan
+                        </p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-check">✓</div>
+                    <div>
+                        <strong>Bonus Launch Package</strong>
+                        <p style="font-size: 13px; color: var(--text-light); margin-top: 5px;">
+                            FREE rename, deploy, dan panduan penggunaan
+                        </p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-check">✓</div>
+                    <div>
+                        <strong>Performance Optimized</strong>
+                        <p style="font-size: 13px; color: var(--text-light); margin-top: 5px;">
+                            Loading super cepat & SEO friendly structure
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="display: flex; gap: 15px; margin-top: 30px; flex-wrap: wrap;">
+                <a href="https://msha.ke/allwebsite_dzx" target="_blank" class="btn-compact">
+                    <i class="fas fa-eye"></i> JELAJAHI TEMPLATE
+                </a>
+                <a href="https://wa.me/6281935928562?text=Halo,%20saya%20mau%20pesan%20WEB%201" class="btn-compact" style="background: linear-gradient(135deg, #25D366, #128C7E);">
+                    <i class="fab fa-whatsapp"></i> PESAN SEKARANG
+                </a>
+            </div>
+        </div>
+
+        <!-- WEB 2 -->
+        <div class="service-card">
+            <div class="service-header">
+                <div style="display: flex; align-items: center; gap: 20px;">
+                    <div class="service-icon" style="background: linear-gradient(135deg, #8A2BE2, #FF00FF);">👑</div>
+                    <div>
+                        <h3 class="service-title">WEB 2 • CUSTOM DESIGN EXPERT</h3>
+                        <p style="color: var(--text-light); font-size: 14px;">
+                            Website eksklusif dirancang dari nol sesuai identitas brand Anda
+                        </p>
+                    </div>
+                </div>
+                <div class="price-tag" style="background: linear-gradient(135deg, #8A2BE2, #FF00FF);">
+                    CUSTOM APPEARANCE
+                </div>
+            </div>
+            
+            <p style="font-size: 16px; color: var(--text-light); margin-bottom: 20px; line-height: 1.7;">
+                <strong>🎯 Perfect untuk:</strong> Bisnis yang ingin menonjol dengan identitas unik, 
+                startup yang membutuhkan website sebagai produk utama, atau perusahaan yang ingin membangun 
+                <strong style="color: var(--accent);">brand authority</strong> yang kuat.
+            </p>
+            
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <div class="feature-check">✓</div>
+                    <div>
+                        <strong>100% Custom Design</strong>
+                        <p style="font-size: 13px; color: var(--text-light); margin-top: 5px;">
+                            Desain dari nol berdasarkan konsep dan branding Anda
+                        </p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-check">✓</div>
+                    <div>
+                        <strong>Exclusive Consultation</strong>
+                        <p style="font-size: 13px; color: var(--text-light); margin-top: 5px;">
+                            Sesi konsultasi mendalam untuk memahami kebutuhan spesifik
+                        </p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-check">✓</div>
+                    <div>
+                        <strong>Security Premium</strong>
+                        <p style="font-size: 13px; color: var(--text-light); margin-top: 5px;">
+                            Proteksi keamanan level enterprise dengan monitoring 24/7
+                        </p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-check">✓</div>
+                    <div>
+                        <strong>Advanced Analytics</strong>
+                        <p style="font-size: 13px; color: var(--text-light); margin-top: 5px;">
+                            Dashboard analytics custom untuk tracking performa
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <p style="padding: 15px; background: linear-gradient(135deg, rgba(138, 43, 226, 0.1), rgba(255, 0, 255, 0.05)); border-radius: 12px; margin: 20px 0; font-size: 14px; color: var(--text-light);">
+                ⭐ <strong>BONUS:</strong> Free 1 bulan maintenance + 3 sesi training penggunaan CMS
+            </p>
+            
+            <div style="display: flex; gap: 15px; margin-top: 25px; flex-wrap: wrap;">
+                <a href="https://wa.me/6281935928562" class="btn-compact" style="background: linear-gradient(135deg, #8A2BE2, #FF00FF);">
+                    <i class="fas fa-crown"></i> REQUEST QUOTE
+                </a>
+                <a href="https://wa.me/6281935928562?text=Halo,%20saya%20mau%20konsultasi%20WEB%202%20Custom%20Design" class="btn-compact" style="background: linear-gradient(135deg, #0066FF, #0047B3);">
+                    <i class="fas fa-comments"></i> KONSULTASI GRATIS
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Marketing Section 1 -->
+    <div class="marketing-section">
+        <h3 class="marketing-title">📈 MENGAPA WEBSITE ITU INVESTASI, BUKAN BEBAN?</h3>
+        <p style="color: var(--text-light); font-size: 16px; line-height: 1.7; margin-bottom: 15px;">
+            <strong>Fakta:</strong> Bisnis dengan website profesional memiliki <strong style="color: var(--accent);">70% lebih banyak peluang</strong> 
+            untuk mendapatkan klien baru dibandingkan yang hanya mengandalkan media sosial.
+        </p>
+        <p style="color: var(--text-light); font-size: 16px; line-height: 1.7;">
+            Website Anda adalah <strong style="color: var(--primary-light);">salesman yang bekerja 24/7</strong>, tidak pernah sakit, tidak pernah lelah, 
+            dan selalu siap memperkenalkan produk/jasa Anda kepada calon pelanggan di seluruh dunia.
+        </p>
+    </div>
+
+    <!-- Marketing Section 2 -->
+    <div class="marketing-section">
+        <h3 class="marketing-title">🎯 BINGUNG PILIH WEB 1 ATAU WEB 2?</h3>
+        <p style="color: var(--text-light); font-size: 16px; line-height: 1.7; margin-bottom: 20px;">
+            <strong>WEB 1 cocok jika:</strong> Anda ingin online cepat dengan budget terbatas, sudah ada referensi template yang disukai, 
+            dan bisnis masih dalam tahap awal pengembangan.
+        </p>
+        <p style="color: var(--text-light); font-size: 16px; line-height: 1.7;">
+            <strong>WEB 2 cocok jika:</strong> Anda memiliki konsep unik, ingin membedakan diri dari kompetitor, 
+            membutuhkan fitur khusus, atau ingin website menjadi bagian inti dari branding bisnis.
+        </p>
+        <p style="padding: 15px; background: rgba(0, 102, 255, 0.1); border-radius: 12px; margin-top: 20px; font-size: 15px; color: var(--text-light);">
+            💡 <strong>Tidak yakin?</strong> Konsultasi gratis! Kami bantu analisis kebutuhan dan rekomendasikan solusi terbaik untuk bisnis Anda.
+        </p>
+    </div>
+
+    <!-- Compact Contact -->
+    <section class="contact-minimal">
+        <h3 class="text-center" style="font-family: 'Montserrat', sans-serif; font-size: 22px; margin-bottom: 25px; color: var(--text);">
+             HUBUNGI KAMI SEKARANG
+        </h3>
+        <p style="text-align: center; color: var(--text-light); margin-bottom: 30px; font-size: 15px;">
+            Jangan biarkan keraguan menghambat kemajuan bisnis Anda. 
+            <strong style="color: var(--accent);">Diskusi awal GRATIS</strong> tanpa kewajiban order!
+        </p>
+        
+        <div class="contact-grid">
+            <a href="https://wa.me/6281935928562" class="contact-item">
+                <div class="contact-icon" style="color: #25D366; background: rgba(37, 211, 102, 0.1);">
+                    <i class="fab fa-whatsapp"></i>
+                </div>
+                <div style="font-size: 15px; font-weight: 600;">WhatsApp</div>
+                <div class="contact-label">0819-3592-8562</div>
+                <div style="font-size: 11px; color: #25D366; margin-top: 5px;">⏱️ Fast Response</div>
+            </a>
+            
+            <a href="https://t.me/DzXNewEra" class="contact-item">
+                <div class="contact-icon" style="color: #0088cc; background: rgba(0, 136, 204, 0.1);">
+                    <i class="fab fa-telegram"></i>
+                </div>
+                <div style="font-size: 15px; font-weight: 600;">Telegram</div>
+                <div class="contact-label">@DzXNewEra</div>
+                <div style="font-size: 11px; color: #0088cc; margin-top: 5px;">📁 File Sharing</div>
+            </a>
+            
+            <a href="https://www.tiktok.com/@dzzxiterz1" class="contact-item">
+                <div class="contact-icon" style="color: #FF0050; background: rgba(255, 0, 80, 0.1);">
+                    <i class="fab fa-tiktok"></i>
+                </div>
+                <div style="font-size: 15px; font-weight: 600;">TikTok</div>
+                <div class="contact-label">@dzzxiterz1</div>
+                <div style="font-size: 11px; color: #FF0050; margin-top: 5px;">🎬 Portfolio</div>
+            </a>
+            
+            <a href="mailto:dzzxiterz99@gmail.com" class="contact-item">
+                <div class="contact-icon" style="color: #EA4335; background: rgba(234, 67, 53, 0.1);">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div style="font-size: 15px; font-weight: 600;">Email</div>
+                <div class="contact-label">dzzxiterz99@gmail.com</div>
+                <div style="font-size: 11px; color: #EA4335; margin-top: 5px;">📧 Formal Inquiry</div>
+            </a>
+        </div>
+        
+        <p class="text-center mt-30" style="color: var(--text-light); font-size: 14px; font-style: italic; max-width: 600px; margin: 30px auto 0; padding: 20px; border-top: 1px solid var(--border);">
+            "Website yang efektif tidak hanya menarik pengunjung, tapi mengubah mereka menjadi pelanggan setia. 
+            Itulah seni yang kami kuasai di DzXNewEra 👑"
+        </p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-compact">
+        <p style="font-size: 15px; margin-bottom: 10px;">© 2024 DzXNewEra 👑 • Premium Website Builder</p>
+        <p style="margin-top: 5px; font-size: 12px; color: var(--text-light);">
+            🚀 Desain Eksklusif • 🔒 Keamanan Terjamin • 💎 Hasil Memuaskan
+        </p>
+        <p style="margin-top: 15px; font-size: 11px; color: var(--primary-light);">
+            <i class="fas fa-clock"></i> Jam Kerja: Senin - Sabtu • 09:00 - 18:00 WIB
+        </p>
+        <p style="margin-top: 10px; font-size: 11px; color: var(--text-light); opacity: 0.7;">
+            Setiap website dibuat dengan ❤️, perhatian terhadap detail, dan komitmen untuk kesempurnaan.
+        </p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <script>
+        // Efek hover untuk card
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Efek untuk tombol
+        document.querySelectorAll('.btn-compact').forEach(btn => {
+            btn.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-3px)';
+            });
+            
+            btn.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Animasi statistik
+        const statNumbers = document.querySelectorAll('.stat-number');
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const stat = entry.target;
+                    const finalValue = stat.textContent;
+                    stat.textContent = '0';
+                    
+                    let current = 0;
+                    const increment = parseInt(finalValue) / 50;
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= parseInt(finalValue)) {
+                            stat.textContent = finalValue;
+                            clearInterval(timer);
+                        } else {
+                            stat.textContent = Math.floor(current);
+                        }
+                    }, 30);
+                    
+                    observer.unobserve(stat);
+                }
+            });
+        }, observerOptions);
+
+        statNumbers.forEach(stat => observer.observe(stat));
+    </script>
+</body>
+</html>
